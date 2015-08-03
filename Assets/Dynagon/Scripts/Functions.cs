@@ -33,10 +33,13 @@ namespace Dynagon {
 			foreach (var t in triangles) {
 				foreach (var p in t.p) {
 					list.Add(p);
+					//泛型和foreach联用这个有意思
+					//这里的Triangle是primitive里面Triangular的子类
 				}
 			}
 			return list;
 		}
+		//话说为什么没有convertTethrahedron to list 呢
 		
 	}
 	

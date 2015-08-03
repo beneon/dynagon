@@ -15,13 +15,14 @@ namespace Dynagon {
 				min = Vector3.Min(min, v);
 			}
 			var c = (max + min) * 0.5f;
-			var radius = Vector3.Distance(max, c) + 1f;
+			var radius = Vector3.Distance(max,c) + 1f;
 			return new Triangle(
 				new Vector3(c.x - Mathf.Sqrt(3.0f) * radius, c.y - radius),
 				new Vector3(c.x + Mathf.Sqrt(3.0f) * radius, c.y - radius),
 				new Vector3(c.x, c.y + 2f * radius)
 				);
 		}
+		//这个就是画一个超大的等边三角形，把所有的点都包括进去（圆圈半径比起实际需要还多出来1）
 		
 		private static Circle GetCircumcircle(Triangle tri) {
 			var p = tri.p;
@@ -65,6 +66,8 @@ namespace Dynagon {
 			tris.RemoveWhere(t => huge.ShareVertex(t));
 			return tris.ToList();
 		}
+		//这里已经用到Delaunay三角形划分算法了。这个就有点点麻烦，有时间再研究研究
+		//不过Delaunay用在这里真的是很棒，因为用这个才能够保证对有限点集建立三角形，且彼此不相交叉
 		
 		public static List<Vector3> Triangulate(List<Vector3> vertices) {
 			return Function.ConvertTrianglesToList(GetDelaunayTriangles(vertices));

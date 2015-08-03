@@ -4,6 +4,8 @@ using System.Collections.Generic;
 namespace Dynagon {
 	
 	internal class Counter<Type> : IEnumerable {
+		//Counter继承IEnumerable的接口
+		//话说IEnumerabe是个啥？
 		
 		protected Dictionary<Type, int> dict;
 		
@@ -22,6 +24,7 @@ namespace Dynagon {
 		
 		public IEnumerator GetEnumerator() {
 			return dict.GetEnumerator();
+			//GetEnumerator怎么用
 		}
 	}
 	

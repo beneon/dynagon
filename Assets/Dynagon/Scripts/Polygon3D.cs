@@ -11,7 +11,9 @@ namespace Dynagon {
 
 		protected Vector3 GetCentroid() {
 			var uniqs = vertices.Distinct();
+			//Distinct()继承的是ienumerable的方法，返回的是IEnumerable类型的结果
 			return uniqs.Aggregate(Vector3.zero, (sum, v) => (sum + v)) / uniqs.Count();
+			//其实这个我之前也自己撸了一个method出来，不过比起这里两行搞定，我那个就真是没脸见人的了
 		}
 
 		protected override void OptimizeIndexes() {

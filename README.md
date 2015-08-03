@@ -17,7 +17,8 @@ Drop Dynagon folder into Assets of the project.
 
 Can create meshes from vertices:
 
-```cs
+
+```
 using UnityEngine;
 using System.Collections.Generic;
 using Dynagon;
@@ -28,13 +29,12 @@ var vertices = new List<Vector3>() {
     new Vector3(0.8f, -0.3f, -0.5f),
     new Vector3(-0.8f, -0.3f, -0.5f)
 };
-
 Factory.Create(vertices);
 ```
 
 Or separately, can triangulate and create a polygon:
 
-```cs
+```
 var triangles = Triangulator3D.Triangulate(vertices);
 new Polygon3D(new GameObject(), triangles).Build();
 ```

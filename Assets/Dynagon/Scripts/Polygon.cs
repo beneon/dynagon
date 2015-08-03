@@ -47,6 +47,7 @@ namespace Dynagon {
 			int temp = indexes[i + 1];
 			indexes[i + 1] = indexes[i + 2];
 			indexes[i + 2] = temp;
+			//so this is how we revert an triangle:swithch 2nd and 3rd
 		}
 
 		protected abstract void OptimizeIndexes();

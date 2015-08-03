@@ -23,6 +23,9 @@ namespace Dynagon.Sample {
 		void OnCollisionEnter(Collision col) {
 			var contact = col.gameObject.transform.position - polygon.gameObject.transform.position;
 			Split(contact);
+			//Debug.Log("col pos:"+col.gameObject.transform.position+" polygon GO po: "+polygon.gameObject.transform.position+" one point:"+contact);
+			//col.gameObject.transform.position会随着碰撞位置的变化而变化的哦？
+			//不会的，col.gameObject.transform.position就是被撞的物体的中心位置。但是因为碰撞往往不止在meteor和中心球体之间，meteor之间也可以碰撞，所以才用col,poly两者进行计算
 		}
 		
 		void Split(Vector3 onePoint) {

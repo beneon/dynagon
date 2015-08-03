@@ -7,7 +7,9 @@ using System.Linq;
 namespace Dynagon {
 	
 	internal abstract class Triangular {
+		//Triangular是一个class
 		public Vector3[] p;
+		//---methods below
 		
 		public bool ShareVertex(Triangular t) {
 			foreach (var v in p) {
@@ -35,12 +37,14 @@ namespace Dynagon {
 			return (int)p[0].x ^ (int)p[1].y ^ (int)p[2].z;
 		}
 	}
+	//end of Triangular def
 	
 	internal class Triangle : Triangular {
 
 		public Triangle(Vector3 p0, Vector3 p1, Vector3 p2) {
 			p = new Vector3[] {p0, p1, p2};
 			Array.Sort(p, Function.CompareVector3);
+			//Function的CompareVector3返回3个值，-1，0，1，基于这个进行排序
 		}
 	}
 
@@ -51,7 +55,8 @@ namespace Dynagon {
 			Array.Sort(p, Function.CompareVector3);
 		}
 	}
-
+	
+//---shperical def
 	internal abstract class Spherical {
 		public readonly Vector3 center;
 		public readonly float radius;
